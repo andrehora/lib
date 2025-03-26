@@ -1,3 +1,5 @@
+[![tests](https://github.com/andrehora/lib/actions/workflows/tests.yml/badge.svg)](https://github.com/andrehora/lib/actions/workflows/tests.yml)
+
 # Library refactoring example
 
 This repository contains a refactoring example (+ unit tests) adapted from the Refactoring book by Martin Fowler and Kent Beck.
