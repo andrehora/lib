@@ -77,7 +77,7 @@ class Client:
         for rental in self._rentals:
 
             amount = rental.get_charge()
-            frequent_renter_points = rental.get_frequent_renter_points()
+            frequent_renter_points += rental.get_frequent_renter_points()
 
             # show each rental result
             result += f"- {rental.book.title}: {amount}\n"
