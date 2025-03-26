@@ -70,7 +70,6 @@ class Client:
 
     def statement(self) -> str:
 
-        total_amount = 0
         frequent_renter_points = 0
         result = f"Rental summary for {self.name}\n"
         
@@ -81,9 +80,17 @@ class Client:
 
             # show each rental result
             result += f"- {rental.book.title}: {amount}\n"
-            total_amount += amount
         
         # show total result
-        result += f"Total: {total_amount}\n"
+        result += f"Total: {self.get_total_charge()}\n"
         result += f"Points: {frequent_renter_points}"
         return result
+    
+    def get_total_charge(self) -> float:
+
+        total_amount = 0
+
+        for rental in self._rentals:
+            total_amount += rental.get_charge()
+        
+        return total_amount
