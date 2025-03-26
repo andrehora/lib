@@ -76,14 +76,13 @@ class Client:
         for rental in self._rentals:
 
             amount = rental.get_charge()
-            frequent_renter_points += rental.get_frequent_renter_points()
 
             # show each rental result
             result += f"- {rental.book.title}: {amount}\n"
         
         # show total result
         result += f"Total: {self.get_total_charge()}\n"
-        result += f"Points: {frequent_renter_points}"
+        result += f"Points: {self.get_total_frequent_renter_points()}"
         return result
     
     def get_total_charge(self) -> float:
@@ -94,3 +93,12 @@ class Client:
             total_amount += rental.get_charge()
         
         return total_amount
+    
+    def get_total_frequent_renter_points(self) -> int:
+
+        total_points = 0
+
+        for rental in self._rentals:
+            total_points += rental.get_frequent_renter_points()
+        
+        return total_points
