@@ -33,7 +33,6 @@ class Rental:
     def get_charge(self) -> float:
 
         amount = 0
-
         if self.book.price_code == Book.REGULAR:
             amount += 2
             if self.days_rented > 2:
@@ -50,7 +49,6 @@ class Rental:
     def get_frequent_renter_points(self):
 
         points = 1
-
         if self.book.price_code == Book.NEW_RELEASE and self.days_rented > 1:
             points += 1
         return points
@@ -71,7 +69,6 @@ class Client:
     def statement(self) -> str:
 
         result = f"Rental summary for {self.name}\n"
-        
         for rental in self._rentals:
             result += f"- {rental.book.title}: {rental.get_charge()}\n"
         
@@ -82,7 +79,6 @@ class Client:
     def get_total_charge(self) -> float:
 
         total_amount = 0
-
         for rental in self._rentals:
             total_amount += rental.get_charge()
         
@@ -91,7 +87,6 @@ class Client:
     def get_total_frequent_renter_points(self) -> int:
 
         total_points = 0
-
         for rental in self._rentals:
             total_points += rental.get_frequent_renter_points()
         
