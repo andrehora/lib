@@ -73,13 +73,8 @@ class Client:
         result = f"Rental summary for {self.name}\n"
         
         for rental in self._rentals:
-
-            amount = rental.get_charge()
-
-            # show each rental result
-            result += f"- {rental.book.title}: {amount}\n"
+            result += f"- {rental.book.title}: {rental.get_charge()}\n"
         
-        # show total result
         result += f"Total: {self.get_total_charge()}\n"
         result += f"Points: {self.get_total_frequent_renter_points()}"
         return result
