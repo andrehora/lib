@@ -70,7 +70,6 @@ class Client:
 
     def statement(self) -> str:
 
-        frequent_renter_points = 0
         result = f"Rental summary for {self.name}\n"
         
         for rental in self._rentals:
